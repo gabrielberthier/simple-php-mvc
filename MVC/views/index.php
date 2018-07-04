@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Bem vindo ao index!</h2>
-</body>
-</html>
+<?php include 'header.php'?>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h2 class="display-3">Hello, world!</h2>
+        <p>This is the fucking index you fucking asshole<br>
+    And this is gonna be a very important shit someday</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Ask me why &raquo;</a></p>
+      </div>
+    </div>
+
+<?php include 'footer.php'?>

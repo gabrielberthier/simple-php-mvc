@@ -11,7 +11,6 @@ class System
     public function __construct()
     {
         $this->setUrl();
-        echo "<br>Funcionou " . __NAMESPACE__;
     }
 
     private function setUrl()
@@ -24,6 +23,7 @@ class System
         else{
             $this->method = 'index';
         }
+        $this->args = (isset($this->url[3]))?$this->url[3]:null;
         $this->insert();
     }
     private function insert()
@@ -34,7 +34,10 @@ class System
             $controller_name = $this->controller . 'Controller';
             $controller_name = '\\Controllers\\' . $controller_name;
             $var = new $controller_name;
-            if(method_exists($var, $this->method)){
+            if(method_exists($var, $this->method) && isset($this->args)){
+                $var->{$this->method}($this->args);
+            }
+            elseif(method_exists($var, $this->method)){
                 $var->{$this->method}();
             }
             else{
@@ -44,7 +47,7 @@ class System
         }
         else{
             $error =  new ErrorController();
-            $error->setErrorView('Método não encontrado');
+            $error->setErrorView('Página não encontrada');
         }
     }
 
