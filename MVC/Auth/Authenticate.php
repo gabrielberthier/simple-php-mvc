@@ -26,7 +26,6 @@ class Authenticate
         $sth->execute(array(':email' => $user->getuser()));
         $received = $sth->fetch(PDO::FETCH_OBJ);
         if(password_verify($user->getpassword(), $received->password)){
-            echo "É ISSO AÍ CARALHO";
             $this->session->id = $received->id;
             $this->session->name = $received->name;
             return true;
