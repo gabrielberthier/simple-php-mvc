@@ -4,7 +4,7 @@ namespace Libs;
 
 class Database extends \PDO{
 
-    private $host = 'mysql:host=;dbname=projectorium', $user = 'root', $password = '';
+    private $host = 'mysql:host=localhost;dbname=projectorium', $user = 'root', $password = '******';
     private $conn;
 
     function __construct()
