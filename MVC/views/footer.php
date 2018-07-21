@@ -3,5 +3,6 @@
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
 <script src="/public/js/bootstrap.min.js"></script>
+
 </body>
 </html>

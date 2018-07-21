@@ -10,6 +10,7 @@ $session =  Session::getInstance();?>
     <title>Document</title>
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/header.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-grid.min.css">
 </head>
 
 <body>
@@ -51,22 +52,22 @@ $session =  Session::getInstance();?>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="\login">Sign in</a>
-        <a class="dropdown-item" href="#">Log in</a>
+        <a class="dropdown-item" href="\signin">Sign in</a>
+        <a class="dropdown-item" href="\login">Log in</a>
       </div>
     </li>
   </ul>
     <?php elseif(session_status() == PHP_SESSION_ACTIVE && isset($session->name)): ?>
     <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link">Olá, usuáeio</a>
+      <a class="nav-link">Olá, usuário</a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <?php echo($session->name); ?></a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="\dashboard">Dashboard</a>
-        <a class="dropdown-item" href="\login\logout">Log Out</a>
+        <a class="dropdown-item" href="\signin\logout">Log Out</a>
       </div>
     </li>
   </ul>

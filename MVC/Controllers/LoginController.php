@@ -1,18 +1,17 @@
-<?php 
+<?php
 
-namespace Controllers;
+namespace Controller;
 
 use Libs\Controller;
 use Models\UserModel;
-use System\Session;
 
 class LoginController extends Controller{
-    private $login;
+    private $user;
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->login = new UserModel();
+        $this->user = new UserModel();
     }
     
     public function index(Type $var = null)
@@ -20,27 +19,20 @@ class LoginController extends Controller{
         $this->view->render('login/login');
     }
 
-    public function newuser()
+    public function getuser()
     {
-        $errors = $this->login->user_is_valid($_POST);
-        if(count($errors)){
-            $this->view->render('error', ['error'=>$errors]);
-            die;
+        $name = $_POST["username"];
+        $password = $_POST["password"];
+        if(empty($name) == true && empty($password)){
+            $this->view->render('error', ['error'=>'Espaços vazios serão banidos!']);
         }
-        $this->login->save($_POST);
-        header("Location: /login/showuser");
+        else{
+            if($this->user->login($name, $password)){
+                header("Location: /dashboard");
+            }
+            else{
+                $this->view->render('error', ['error'=>'Não reconhecido!<br>Sua senha ou email estão errados']);
+            }
+        }
     }
-
-    public function showUser(){
-        $data = Session::getInstance();
-        $name = $data->name;
-        $this->view->render('login/newuser', [ 'user' => $name, 'loggedIn' => TRUE]);
-    }
-
-    public function logout()
-    {
-        Session::getInstance()->destroy();;
-        header("Location: /");
-    }
-
 }

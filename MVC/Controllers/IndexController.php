@@ -9,7 +9,7 @@ use Libs\View;
 class IndexController extends Controller
 {
 
-    public function cake($argument)
+    public function cake($argument = null)
     {
         echo "<br><b>We bring you a cake, the arguments are $argument<b>";
     }
