@@ -2,15 +2,10 @@
 namespace Libs;
 use Libs\Message;
 
-class View
+trait View
 {
-    private $mesa;
-    function __construct()
-    {
-        
-    }
 
-    public function render($path, $vars = [])
+    public function view($path, $vars = [])
     {
         $file = 'views/' . $path;
         if(isset($vars) == true){

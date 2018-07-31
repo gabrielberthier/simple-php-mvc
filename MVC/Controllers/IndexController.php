@@ -16,8 +16,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $view = $this->view;
-        $view->render('index');
+        $this->view('index');
     }
 
 }

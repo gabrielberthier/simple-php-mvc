@@ -352,4 +352,4 @@ if(session_status() == PHP_SESSION_NONE || (!isset($session->name)))
     </div>
 </div>
 
-<?php include '/../footer.php'?>
+<?php include __DIR__.'/../footer.php'?>

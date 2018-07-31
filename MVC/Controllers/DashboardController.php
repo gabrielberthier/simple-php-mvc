@@ -8,14 +8,9 @@ use System\Session;
 
 class DashboardController extends Controller{
 
-    function __construct()
-    {
-        parent::__construct();
-    }
-
     public function index()
     {
-        $this->view->render('dashboard/dashboard');
+        $this->view('dashboard/dashboard');
     }
 
 

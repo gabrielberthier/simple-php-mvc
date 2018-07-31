@@ -123,4 +123,4 @@ $session =  Session::getInstance();?>
 </div>
 </div>
 
-<?php include '/../footer.php' ?>
+<?php include __DIR__. '/../footer.php' ?>

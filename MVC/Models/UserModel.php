@@ -12,12 +12,7 @@ class UserModel extends Model{
         'email', 'name', 'surname','password', 'fk_'
     ];
 
-    protected $tablename = 'users';
-    
-    public function __construct()
-    {
-
-    }
+    protected static $tablename = 'users';
 
     public function user_is_valid($response = array())
     {
@@ -42,25 +37,13 @@ class UserModel extends Model{
         return $errors;
     }
 
-    public function getcallable()
-    {
-        return $this->callable;
-    }
-
-    public function gettablename(){
-        return $this->tablename;
-    }
-
     public function save($response = [])
     {
         $options = [
             'cost' => 15,
         ];
-        $saver = new Saver();
         $response['password'] = password_hash($response['password'], PASSWORD_BCRYPT, $options);
-        $this->callable = array_flip($this->callable);
-        $this->callable = array_intersect_key($response,$this->callable);
-        return $saver->insert_into_mysql($this);
+        return UserModel::insert($response);
     }
 
     public function login($user,$password)
@@ -68,7 +51,8 @@ class UserModel extends Model{
         $auth = new Auth($user, $password);
         $authenticate = new Authenticate();
         return $authenticate->gotlogged($auth);
-        
     }
+
+    
 
 }

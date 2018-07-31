@@ -10,11 +10,6 @@ use Auth\Authenticate;
 class ProfileController extends Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public function index()
     {
         $session = Session::getInstance();
@@ -23,7 +18,7 @@ class ProfileController extends Controller
         else{
             $authenticate = new Authenticate();
             $userarray = $authenticate->getAuth($session->id);
-            $this->view->render('profile/profile', $userarray);
+            $this->view('profile/profile', $userarray);
         }
     }
 

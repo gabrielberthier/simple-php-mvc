@@ -1,4 +1,4 @@
-<?php include '/../header.php'?>
+<?php include __DIR__ . '/../header.php';?>
 <main class="text-center">
     <form class="form-signin" action="/signin/newuser" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -31,4 +31,4 @@
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
 </main>
-<?php include '/../footer.php'?>
+<?php include __DIR__ . '/../footer.php';?>

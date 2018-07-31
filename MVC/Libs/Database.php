@@ -4,7 +4,7 @@ namespace Libs;
 
 class Database extends \PDO{
 
-    private $host = 'mysql:host=localhost;dbname=projectorium', $user = 'root', $password = '******';
+    private $host = 'mysql:host=localhost;dbname=projectorium', $user = 'root', $password = 'Greenmario97';
     private $conn;
 
     function __construct()
@@ -14,8 +14,8 @@ class Database extends \PDO{
 
     private function get_connection()
     {
-        parent::__construct($this->host,$this->user, $this->password);
-        return $this->conn;
+        return parent::__construct($this->host,$this->user, $this->password);
+        //return $this->conn;
     }
 
 

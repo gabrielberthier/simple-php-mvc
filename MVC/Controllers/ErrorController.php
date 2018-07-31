@@ -8,7 +8,7 @@ class ErrorController extends Controller{
     public function setErrorView($error)
     {
         
-        $this->view->render('error', ['error' => $error]);
+        $this->view('error', ['error' => $error]);
     }
 
 }
