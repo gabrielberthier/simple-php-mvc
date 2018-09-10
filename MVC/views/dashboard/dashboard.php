@@ -118,9 +118,10 @@ if(session_status() == PHP_SESSION_NONE || (!isset($session->name)))
             </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-                <a class="nav-link text-center" id="sidenavToggler">
-                    <i class="fa fa-fw fa-angle-right"></i> This is my dashboard
+            <li class="nav-item centerlize">
+                <a class="nav-link " id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>/ This is my dashboard
+                    <i class="fa fa-fw fa-angle-right"></i>
                 </a>
             </li>
         </ul>

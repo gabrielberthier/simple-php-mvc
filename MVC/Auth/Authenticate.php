@@ -22,9 +22,14 @@ class Authenticate
 
     public function gotlogged(Auth $user)
     {
+        try{
         $sth = $this->db->prepare('select * FROM users where email = :email');
         $sth->execute(array(':email' => $user->getuser()));
         $received = $sth->fetch(PDO::FETCH_OBJ);
+        if(!is_object($received)){
+            echo "<script>alert('Cadastre-se');</script>";
+            return false;
+        }
         if(password_verify($user->getpassword(), $received->password)){
             $this->session->id = $received->id;
             $this->session->name = $received->name;
@@ -34,6 +39,10 @@ class Authenticate
             echo "Não funfou <br>";
             return false;
         }
+    } catch(\Exception $ex){
+        echo("Error! <br>".$ex);
+
+    }
     }
 
     public function getAuth($id)
