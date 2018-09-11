@@ -7,12 +7,11 @@ use Auth\Auth;
 use Auth\Authenticate;
 
 class UserModel extends Model{
-
+    protected static $tablename = 'users';
+    
     protected $callable = [
         'email', 'name', 'surname','password', 'fk_'
     ];
-
-    protected static $tablename = 'users';
 
     public function user_is_valid($response = array())
     {

@@ -36,7 +36,6 @@ class Authenticate
             return true;
         }
         else{
-            echo "Não funfou <br>";
             return false;
         }
     } catch(\Exception $ex){

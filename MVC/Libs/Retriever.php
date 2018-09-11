@@ -10,7 +10,7 @@ trait Retriever
     {
         try {
             $db = Model::$db;
-            $sth = $db->prepare('select * FROM users where id = :id');
+            $sth = $db->prepare('select * FROM ' .$this->gettablename(). ' where id = :id');
             $sth->execute(array(':id' => $id));
             
             return $sth->fetch(PDO::FETCH_OBJ);
