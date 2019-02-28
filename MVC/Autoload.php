@@ -2,8 +2,17 @@
 
 class Autoload
 {
-    private $ext;
-    private function Autoloader($class)
+    
+    
+    private $ext; 
+    
+     public function __construct()
+    {
+        $this->ext = spl_autoload_extensions('.php');
+        spl_autoload_register([$this, 'Autoloader']);
+    }
+    
+    private function autoloader($class)
     {
         $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         $class = $class.$this->ext;
@@ -13,11 +22,5 @@ class Autoload
         else{
             echo "Error";
         }
-    }
-
-    public function __construct()
-    {
-        $this->ext = spl_autoload_extensions('.php');
-        spl_autoload_register([$this, 'Autoloader']);
     }
 }
